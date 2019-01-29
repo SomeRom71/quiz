@@ -1,0 +1,26 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.phone{
+  &__icon{
+    padding-right: 25px;
+  }
+
+  font-family: Gilroy-Extrabold;
+  font-size: 1.25rem;
+  color: #fff;
+  letter-spacing: 1px;
+
+  &-blue{
+    display: none;
+  }
+}
+
+.logo{
+  &__blue{
+    display: none;
+  }
+}
