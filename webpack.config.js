@@ -77,6 +77,10 @@ const commonConfig = merge([
       new HtmlPlugin({
         template: './index.pug'
       }),
+      new HtmlPlugin({
+        template: './thanks.pug',
+        filename: 'thanks.html'
+      }),
       new FriendlyErrorsPlugin(),
       new StylelintPlugin(lintStylesOptions)
     ],

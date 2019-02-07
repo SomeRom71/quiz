@@ -11,34 +11,9 @@
           li Составление претензии, жалобы, искового заявления
           li Составление договоров
           li Представление интересов в суде первой инстанции
-          li Представление аппеляционной жалобы
+          li Cоставление апелляционной жалобы
           li Представление интересов в суде аппеляционной инстанции
         button#services__btn.services__btn Пройти тест и получить 
           span скидку 5000 руб
-    .quiz
-      .question__block
-        .question__counter
-          p Вопрос 
-            span#question__num 1
-          |  из 5
-          .question__progress
-            span
-            ul.question__list
-              li 1
-              li 2
-              li 3
-              li 4
-              li 5
-        .question
-          #quiz
-          button(type="submit")#next.question__btn Следующий вопрос
-            img(src="images/triangle.svg" alt='треугольник')
-      .discount
-        .discount__image
-          img(src="images/femida.png")
-        p.discount__number Ваша скидка равна:
-          span#discount__sum 0 руб
-        p.discount__text Вы получаете по 1000 рублей скидки
-          br
-          |  за ответ на каждый вопрос слева
+    include quiz.pug
     include footer.pug

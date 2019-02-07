@@ -1,0 +1,216 @@
+@media screen and (max-width: 1440px) {
+  html{
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  .services{
+    &__list{
+      li{
+        width: 50%;
+      }
+    }
+  }
+
+  .footer{
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  html{
+    font-size: 13px;
+  }
+
+  .discount{
+    width: 45%;
+
+    img{
+      max-width: 100%;
+    }
+  }
+
+  .question{
+    &__btn{
+      margin: 20px 0;
+    }
+  }
+
+  #quiz__form{
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html{
+    font-size: 12px;
+  }
+
+  .main{
+    &__text{
+      width: 100%;
+    }
+  }
+
+  .footer{
+    width: 80%;
+  }
+
+  .thanks{
+    &__container{
+      .footer{
+        position: inherit;
+        margin-top: 30px;
+      }
+    }
+  }
+
+  .quiz{
+    flex-direction: column;
+  }
+
+  .question{
+    &__block{
+      width: 100%;
+      padding: 0 40px;
+      text-align: center;
+    }
+  }
+
+  .discount{
+    width: 100%;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  html{
+    font-size: 12px;
+  }
+
+  .header{
+    flex-direction: column;
+  }
+
+  .logo{
+    margin-bottom: 20px;
+  }
+
+  .services{
+    &__list{
+      li{
+        width: 100%;
+      }
+    }
+
+    &__btn:after, &__btn:before{
+      content: none;
+    }
+  }
+
+  .main{
+    &__title, &__text{
+      font-size: 1.5rem;
+    }
+
+    &__text{
+      width: 100%;
+    }
+  }
+
+  .footer{
+    width: 100%;
+    margin-top: 50px;
+
+    &__list{
+      flex-wrap: wrap;
+
+      li{
+        width: 50%;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .thanks{
+    &__content{
+      margin-top: 50px;
+    }
+
+    &__text{
+      font-size: 2rem;
+
+      &_bold{
+        font-size: 1.3rem;
+      }
+
+      &_medium{
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  #quiz{
+    height: 280px;
+  }
+
+  .question{
+    &__block{
+      padding: 0 10px;
+    }
+
+    &__btn{
+      width: 80%;
+    }
+  }
+}
+
+
+@media screen and (max-width: 375px) {
+  .main{
+    &__text{
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+  }
+
+  .services{
+    &__btn{
+      padding: 25px 30px;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .container{
+    width: 100%;
+  }
+
+  html{
+    font-size: 11px;
+  }
+
+  .main{
+    &__title{
+      font-size: 1.3rem;
+    }
+  }
+
+  .services{
+    &__btn{
+      width: 90%;
+      padding: 25px 0;
+    }
+  }
+
+  .footer{
+    &__list{
+      li{
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

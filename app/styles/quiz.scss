@@ -4,21 +4,110 @@
   background: #f6f6f6;
   flex-direction: row;
   justify-content: space-evenly;
+
+  &__form{
+    &__text{
+      font-family: Gilroy-bold;
+      font-size: 1.125rem;
+      color: #fff;
+      letter-spacing: 0.5px;
+      line-height: 30px;
+
+      span{
+        color: #61fda4;
+      }
+    }
+
+    &__input{
+      background: url('../images/phone-symbol.svg') no-repeat 15px center;
+      border-radius: 10px;
+      border: 1px solid #fff;
+      outline: none;
+      height: 48px;
+      font-family: Gilroy-light;
+      font-size: 1rem;
+      color: #fff;
+      text-align: center;
+      padding: 0 5px 0 35px;
+      margin-top: 30px;
+      &::-webkit-input-placeholder {color:#fff; font-family: Gilroy-light; font-size: 16px; text-align: center;}
+      &::-moz-placeholder          {color:#fff; font-family: Gilroy-light; font-size: 16px; text-align: center;}/* Firefox 19+ */
+      &:-moz-placeholder           {color:#fff; font-family: Gilroy-light; font-size: 16px; text-align: center;}/* Firefox 18- */
+      &:-ms-input-placeholder      {color:#fff; font-family: Gilroy-light; font-size: 16px; text-align: center;}
+    }
+
+    &__btn{
+      font-family: Gilroy-bold;
+      font-size: 1rem;
+      color: #3c3cf0;
+      background: #fff;
+      height: 60px;
+      border-radius: 10px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  }
 }
 
-.question__block{
-  width: 40%;
-  margin-top: 75px;
+.last-question{
+  #next{
+    display: none;
+  }
+
+  #quiz{
+    height: auto;
+  }
+
+  #quiz__form{
+    opacity: 1;
+    position: inherit;
+  }
+
+  .slide{
+    z-index: -1!important;
+  }
+
+  #question__progress__line{
+    width: 100%!important;
+  }
+}
+
+#quiz__form{
+  background: #3c3cf0;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 38px 0 rgba(60, 60, 240, 0.2);
+  transition: opacity 1s ease;
+  position: absolute;
+  opacity: 0;
+
+  form{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.agree{
+  font-family: Gilroy-light;
+  font-size: 0.5625rem;
+  color: #d0d0d0;
+  margin-top: 10px;
 }
 
 .question{
   margin-top: 85px;
   position: relative;
 
+  &__block{
+    width: 40%;
+    margin-top: 75px;
+  }
+
   &__counter{
     width: 100%;
     font-family: Gilroy-medium;
-    font-size: 12px;
+    font-size: 0.75rem;
     color: #3c3cf0;
     letter-spacing: 1px;
 
@@ -32,6 +121,7 @@
     height: 17px;
     display: block;
     border-radius: 5px;
+    margin-top: 10px;
 
     span{
       background: #3c3cf0;
@@ -48,9 +138,9 @@
     margin-top: 10px;
   }
 
-  span{
+  &__text{
     font-family: Gilroy-bold;
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   &__checkbox{
@@ -59,7 +149,7 @@
     &__label{
       display: block;
       font-family: Gilroy-medium;
-      font-size: 18px;
+      font-size: 1.125rem;
       letter-spacing: 1px;
       position: relative;
       cursor: pointer;
@@ -114,7 +204,7 @@
 
   &__btn{
     font-family: Gilroy-medium;
-    font-size: 18px;
+    font-size: 1.125rem;
     background-color: #fff;
     border: none;
     border-radius: 5px;
@@ -122,9 +212,32 @@
     width: 70%;
     box-shadow: 0 0 49px 0 rgba(104, 104, 104, 0.2);
 
-    img{
-      vertical-align: middle;
+    &_last{
+      background: #3c3cf0;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+
+      span{
+        display: block;
+      }
+
+      &:after{
+        align-self: center;
+        fill: #fff;
+        background: url('../images/triangle-white.svg')!important;
+      }
+    }
+
+    &:after{
+      content: '';
+      display: inline-block;
+      height: 15px;
+      width: 11px;
       margin-left: 10px;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      background: url('../images/triangle.svg');
     }
   }
 }
@@ -143,13 +256,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: Gilroy-bold;
-    font-size: 24px;
+    font-size: 1.5rem;
     white-space: nowrap;
 
     span{
       display: block;
       font-family: Gilroy-Extrabold;
-      font-size: 60px;
+      font-size: 3.75rem;
       color: #3c3cf0;
       margin-top: 40px;
     }
@@ -157,11 +270,15 @@
 
   &__text{
     font-family: Gilroy-medium;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #808080;
     position: absolute;
+    display: inline-block;
     bottom: 110px;
-    width: 100%;
+    width: 75%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
   }
 
   &__image{

@@ -1,5 +1,6 @@
 import '../styles/main.scss'
 import 'magnific-popup'
+import {ajax} from 'jquery'
 import '../styles/magnific.scss'
 
 if (process.env.NODE_ENV !== 'production') {
@@ -13,7 +14,9 @@ services__btn.addEventListener( 'click' , function() {
   quiz()
 })
 
-let quiz = (function () {
+let quizAnswers = []
+
+const quiz = (function () {
   const myQuestions = [
     {
       question: 'Вы являетесь:',
@@ -54,6 +57,7 @@ let quiz = (function () {
       }
     }
   ]
+
   let letter
   function buildQuiz () {
     const output = []
@@ -71,7 +75,7 @@ let quiz = (function () {
       }
       output.push(
         `<div class='slide'>
-           <span>${currentQuestion.question}</span>
+           <span class="question__text">${currentQuestion.question}</span>
            <div class="question__checkbox">
               <div class='answers'> ${answers.join('')} </div>
            </div>
@@ -83,23 +87,32 @@ let quiz = (function () {
   }
 
   function showSlide (n) {
+    if (slides.length - 1 <= currentSlide) {
+      questionContainer.classList.add('last-question')
+      discountSum.innerHTML = '5000' + ' руб'
+      questionCounterText.innerHTML = 'Вы ответили на все вопросы. Спасибо!'
+      discountText.innerHTML = 'Для закрепления за Вами скидки 5000 рублей заполните форму слева!'
+      questionProgress.style.width = 100 + '%'
+    }
+
     slides[currentSlide].classList.remove('active-slide')
     slides[n].classList.add('active-slide')
     currentSlide = n
+
     if (questionCount === 1) {
       discountSum.innerHTML = '0' + ' руб'
+      questionProgress.style.width = 2 + '%'
     } else {
-      discountSum.innerHTML = questionCount * 1000 + ' руб'
+      discountSum.innerHTML = (questionCount - 1) * 1000 + ' руб'
+      questionProgress.style.width = 20 * currentSlide + '%'
     }
-
-    questionNum.innerHTML = questionCount++
 
     if (currentSlide === slides.length - 1) {
-      nextButton.style.display = 'none'
-      submitButton.style.display = 'inline-block'
-    } else {
-      nextButton.style.display = 'inline-block'
+      nextButton.innerHTML = '<p>Закончить опрос и получить <span>скидку 5000 руб</span></p>'
+      nextButton.classList.add('question__btn_last')
     }
+
+    questionNum.innerHTML = '&nbsp;' + questionCount++
   }
 
   function showNextSlide () {
@@ -107,18 +120,49 @@ let quiz = (function () {
   }
 
   const quizContainer = document.getElementById('quiz')
-  const submitButton = document.getElementById('submit')
+  const questionContainer = document.getElementById('question')
+  const questionProgress = document.getElementById('question__progress__line')
 
   buildQuiz()
 
+  const labels = document.querySelectorAll('label > input')
   const nextButton = document.getElementById('next')
   const slides = document.querySelectorAll('.slide')
   const questionNum = document.getElementById('question__num')
+  const questionCounterText = document.getElementById('question__counter__text')
   const discountSum = document.getElementById('discount__sum')
+  const discountText = document.getElementById('discount__text')
   let currentSlide = 0
   let questionCount = 1
 
+  labels.forEach(function (item, i) {
+    item.onclick = function () {
+      quizAnswers.push(item.parentNode.textContent.trim())
+      showNextSlide()
+    }
+  })
+
   showSlide(0)
 
-  nextButton.addEventListener('click', showNextSlide)
+  function showMessage () {
+    alert('Выберите ответ!')
+  }
+
+  nextButton.addEventListener('click', showMessage)
+  return quizAnswers
 })()
+
+const form = document.getElementById('form')
+
+form.onsubmit = function (e) {
+  const phone = document.getElementById('phone').value
+  quizAnswers.push(phone)
+  ajax({
+    type: 'POST',
+    data: {data: JSON.stringify(quizAnswers)},
+    url: 'mail.php',
+    success: function (data) {
+    }
+  })
+  window.location.href = './thanks.html'
+}

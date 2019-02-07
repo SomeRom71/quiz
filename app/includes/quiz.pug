@@ -1,0 +1,32 @@
+.quiz
+  .question__block
+    .question__counter
+      p#question__counter__text Вопрос
+        span#question__num 1
+        |  из 5
+      .question__progress
+        span#question__progress__line
+        ul.question__list
+          li 0
+          li 1
+          li 2
+          li 3
+          li 4
+          li 5
+    .question#question
+      #quiz
+      button(type="submit")#next.question__btn Следующий вопрос
+      #quiz__form
+        form#form
+          p.quiz__form__text Оставьте свой телефон ниже, чтобы мы закрепили за Вами
+            span  скидку 5000 руб
+          input(type="text" id="phone" required="required" placeholder="Введите Ваш телефон").quiz__form__input
+          button(type="submit").quiz__form__btn#sendBtn Получить скидку 5000 руб
+          span.agree Согласен(а) на обработку данных
+  .discount
+    .discount__image
+      img(src="images/femida.png")
+    p.discount__number Ваша скидка равна:
+      span#discount__sum 0 руб
+    p.discount__text#discount__text Вы получаете по 1000 рублей скидки
+      |  за ответ на каждый вопрос слева

@@ -28,6 +28,11 @@ li{
   list-style-type: none;
 }
 
+button{
+  outline: none;
+  border: none;
+}
+
 .container{
   width: 71.3%;
   margin: 0 auto;
@@ -74,7 +79,6 @@ li{
 
 .main{
   padding-top: 30px;
-  height: 100%;
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -83,7 +87,7 @@ li{
   &__title{
     display: inline-block;
     font-family: Gilroy-Extrabold;
-    font-size: 46px;
+    font-size: 2.875rem;
     border-bottom: 7px solid #61fda4;
     letter-spacing: 1px;
     padding-bottom: 5px;
@@ -91,7 +95,7 @@ li{
 
   &__text{
     font-family: Gilroy-bold;
-    font-size: 32px;
+    font-size: 2rem;
     letter-spacing: 0.5px;
     width: 72%;
     margin: 0 auto;
@@ -104,7 +108,7 @@ li{
 
   &__title{
     font-family: Gilroy-medium;
-    font-size: 24px;
+    font-size: 1.5rem;
     letter-spacing: 1px;
   }
 
@@ -127,7 +131,7 @@ li{
       }
 
       font-family: Gilroy-regular;
-      font-size: 18px;
+      font-size: 1.125rem;
       width: 33.3333%;
       text-align: left;
       margin-bottom: 30px;
@@ -136,7 +140,7 @@ li{
 
   &__btn{
     font-family: Gilroy-light;
-    font-size: 22px;
+    font-size: 1.375rem;
     letter-spacing: 1px;
     border-radius: 10px;
     background-color: rgb(80, 76, 249);
@@ -187,5 +191,6 @@ li{
 @import 'header';
 @import 'footer';
 @import 'quiz';
-@import 'media';
+@import 'thanks';
 @import 'reset';
+@import 'media';
