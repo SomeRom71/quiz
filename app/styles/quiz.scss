@@ -18,18 +18,27 @@
       }
     }
 
-    &__input{
-      background: url('../images/phone-symbol.svg') no-repeat 15px center;
+    &__label{
       border-radius: 10px;
       border: 1px solid #fff;
       outline: none;
       height: 48px;
+      line-height: 48px;
+      text-align: center;
+      margin-top: 30px;
+
+      img{
+        padding-right: 10px;
+      }
+    }
+
+    &__input{
       font-family: Gilroy-light;
       font-size: 1rem;
       color: #fff;
-      text-align: center;
-      padding: 0 5px 0 35px;
-      margin-top: 30px;
+      background: transparent;
+      border: none;
+      outline: none;
       &::-webkit-input-placeholder {color:#fff; font-family: Gilroy-light; font-size: 16px; text-align: center;}
       &::-moz-placeholder          {color:#fff; font-family: Gilroy-light; font-size: 16px; text-align: center;}/* Firefox 19+ */
       &:-moz-placeholder           {color:#fff; font-family: Gilroy-light; font-size: 16px; text-align: center;}/* Firefox 18- */
@@ -61,6 +70,7 @@
   #quiz__form{
     opacity: 1;
     position: inherit;
+    display: block;
   }
 
   .slide{
@@ -73,6 +83,7 @@
 }
 
 #quiz__form{
+  display: none;
   background: #3c3cf0;
   padding: 30px;
   text-align: center;
@@ -81,6 +92,7 @@
   transition: opacity 1s ease;
   position: absolute;
   opacity: 0;
+  width: 114%;
 
   form{
     display: flex;
@@ -93,6 +105,11 @@
   font-size: 0.5625rem;
   color: #d0d0d0;
   margin-top: 10px;
+
+  &__img{
+    vertical-align: middle;
+    margin-right: 5px;
+  }
 }
 
 .question{
@@ -100,7 +117,7 @@
   position: relative;
 
   &__block{
-    width: 40%;
+    width: 28%;
     margin-top: 75px;
   }
 
@@ -217,6 +234,8 @@
       color: #fff;
       display: flex;
       justify-content: center;
+      white-space: nowrap;
+      width: auto;
 
       span{
         display: block;
@@ -288,7 +307,7 @@
 }
 
 #quiz{
-  height: 250px;
+  height: 310px;
 }
 
 .slide{
@@ -296,7 +315,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: -1;
   opacity: 0;
   transition: opacity 0.5s;
 }

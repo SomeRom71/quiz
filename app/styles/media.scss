@@ -2,6 +2,10 @@
   html{
     font-size: 14px;
   }
+
+  .quiz__form__input{
+    font-size: 1.4rem;
+  }
 }
 
 @media screen and (max-width: 1170px) {
@@ -35,10 +39,18 @@
     &__btn{
       margin: 20px 0;
     }
+
+    &__block{
+      width: 36%;
+    }
   }
 
   #quiz__form{
     margin-bottom: 20px;
+  }
+
+  #quiz{
+    height: 280px;
   }
 }
 
@@ -57,15 +69,6 @@
     width: 80%;
   }
 
-  .thanks{
-    &__container{
-      .footer{
-        position: inherit;
-        margin-top: 30px;
-      }
-    }
-  }
-
   .quiz{
     flex-direction: column;
   }
@@ -74,13 +77,20 @@
     &__block{
       width: 100%;
       padding: 0 40px;
-      text-align: center;
+      order: 2;
     }
   }
 
   .discount{
     width: 100%;
-    margin-top: 50px;
+  }
+
+  #quiz__form{
+    width: 100%;
+  }
+
+  #quiz{
+    height: 210px;
   }
 }
 
@@ -89,28 +99,44 @@
     font-size: 12px;
   }
 
+  .logo{
+    display: none;
+  }
+
   .header{
     flex-direction: column;
   }
 
-  .logo{
-    margin-bottom: 20px;
+  .container{
+    width: 100%;
   }
 
   .services{
     &__list{
-      li{
-        width: 100%;
-      }
+      display: none;
     }
 
-    &__btn:after, &__btn:before{
+    &__title{
+      display: none;
+    }
+
+    &__btn__wrap:after, &__btn__wrap:before{
       content: none;
+    }
+
+    &__btn__wrap{
+      margin-top: 0;
+      margin-bottom: 40px;
     }
   }
 
   .main{
-    &__title, &__text{
+    &__title{
+      font-size: 2.3rem;
+      line-height: 35px;
+    }
+
+    &__text{
       font-size: 1.5rem;
     }
 
@@ -151,10 +177,6 @@
     }
   }
 
-  #quiz{
-    height: 280px;
-  }
-
   .question{
     &__block{
       padding: 0 10px;
@@ -164,13 +186,16 @@
       width: 80%;
     }
   }
+
+  .quiz__form__text{
+    font-size: 1.5rem;
+  }
 }
 
 
 @media screen and (max-width: 375px) {
   .main{
     &__text{
-      font-size: 1rem;
       margin-top: 20px;
     }
   }
@@ -180,6 +205,10 @@
       padding: 25px 30px;
       font-size: 1.3rem;
     }
+  }
+
+  .question__checkbox__label{
+    letter-spacing: 0;
   }
 }
 
@@ -194,14 +223,14 @@
 
   .main{
     &__title{
-      font-size: 1.3rem;
+      font-size: 2.6rem;
     }
   }
 
   .services{
     &__btn{
-      width: 90%;
-      padding: 25px 0;
+      width: 100%;
+      padding: 25px 20px;
     }
   }
 

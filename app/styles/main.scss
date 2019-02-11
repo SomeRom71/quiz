@@ -4,10 +4,12 @@
 
 html{
   font-size: 16px;
+  margin: 0!important;
 }
 
 body {
   margin: 0;
+  height: 100%;
 }
 
 a{
@@ -128,6 +130,28 @@ button{
         display: inline-block;
         background-repeat: no-repeat;
         background-image: url('../images/marker.png');
+        animation: move 3.6s ease-out infinite;
+
+      }
+
+      &:nth-child(2):before{
+        animation-delay: 0.6s;
+      }
+
+      &:nth-child(3):before{
+        animation-delay: 1.2s;
+      }
+
+      &:nth-child(4):before{
+        animation-delay: 1.8s;
+      }
+
+      &:nth-child(5):before{
+        animation-delay: 2.4s;
+      }
+
+      &:nth-child(6):before{
+        animation-delay: 3s;
       }
 
       font-family: Gilroy-regular;
@@ -148,30 +172,38 @@ button{
     border: none;
     color: #fff;
     padding: 25px 45px;
-    margin-top: 75px;
     position: relative;
     outline: none;
     cursor: pointer;
+    overflow: hidden;
 
-    &:before, &:after{
-      content: '';
-      display: block;
-      background-image: url('../images/arrow.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
-      transform: scale(2, 2) rotate(-90deg);
-      position: absolute;
-      top: 0;
-      left: -80px;
-      width: 60px;
-      height: 31px;
+    &__wrap{
+      position: relative;
+      margin-top: 75px;
+      display: inline-block;
+
+      &:before, &:after{
+        content: '';
+        display: block;
+        background-image: url('../images/arrow.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        transform: scale(2, 2) rotate(-90deg);
+        position: absolute;
+        top: 0;
+        left: -80px;
+        width: 60px;
+        height: 31px;
+      }
+
+      &:after{
+        right: -80px !important;
+        transform: scale(-2, 2) rotate(-90deg);
+        left: inherit;
+      }
     }
 
-    &:after{
-      right: -80px !important;
-      transform: scale(-2, 2) rotate(-90deg);
-      left: inherit;
-    }
+
 
     span{
       font-family: Gilroy-bold;
@@ -180,10 +212,43 @@ button{
   }
 }
 
+.blick{
+  &:after{
+    content: '';
+    position: absolute;
+    top: -9px;
+    bottom: -9px;
+    left: -15px;
+    display: block;
+    margin-left: -1px;
+    box-shadow: 0 0 15px 3px #fff;
+    background: 0 0;
+    -webkit-transform: rotate(38deg);
+    transform: rotate(38deg);
+    -webkit-animation: blick 2s ease-out infinite;
+    animation: blick 2s linear infinite;
+    opacity: 1;
+    transition: opacity 0.28s ease-out;
+  }
+
+  &:hover:after{
+    opacity: 0;
+  }
+}
+
 .content{
   margin-top: 65px;
   color: #fff;
   text-align: center;
+}
+
+.mfp-container{
+  background: rgba(239, 239, 239, 0.7);
+  overflow-y: scroll;
+}
+
+.mfp-preloader{
+  display: none;
 }
 
 /* Sections */
@@ -194,3 +259,38 @@ button{
 @import 'thanks';
 @import 'reset';
 @import 'media';
+@import 'magnific';
+
+
+/* keyframes */
+@keyframes move{
+  0% {
+    transform: translateY(0);
+  }
+
+  8% {
+    transform: translateY(-50%);
+  }
+
+  16% {
+    transform: translateY(50%);
+  }
+
+  33% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes blick{
+  0% {
+    left: 0%;
+  }
+
+  70% {
+    left: 120%;
+  }
+
+  100% {
+    left: 130%;
+  }
+}

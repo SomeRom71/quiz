@@ -1,6 +1,7 @@
 import '../styles/main.scss'
+import * as $ from 'jquery'
+import Numbered from 'input.numbered'
 import 'magnific-popup'
-import {ajax} from 'jquery'
 import '../styles/magnific.scss'
 
 if (process.env.NODE_ENV !== 'production') {
@@ -41,7 +42,7 @@ const quiz = (function () {
       }
     },
     {
-      question: 'Какие услуги Вам необхдимы?',
+      question: 'Какие услуги Вам необходимы?',
       answers: {
         a: 'Взыскание задолженности через суд',
         b: 'Устные консультации в офисе',
@@ -93,6 +94,9 @@ const quiz = (function () {
       questionCounterText.innerHTML = 'Вы ответили на все вопросы. Спасибо!'
       discountText.innerHTML = 'Для закрепления за Вами скидки 5000 рублей заполните форму слева!'
       questionProgress.style.width = 100 + '%'
+      if (document.documentElement.clientWidth <= 768) {
+        discount.style.display = 'none'
+      }
     }
 
     slides[currentSlide].classList.remove('active-slide')
@@ -130,6 +134,7 @@ const quiz = (function () {
   const slides = document.querySelectorAll('.slide')
   const questionNum = document.getElementById('question__num')
   const questionCounterText = document.getElementById('question__counter__text')
+  const discount = document.getElementById('discount')
   const discountSum = document.getElementById('discount__sum')
   const discountText = document.getElementById('discount__text')
   let currentSlide = 0
@@ -155,14 +160,35 @@ const quiz = (function () {
 const form = document.getElementById('form')
 
 form.onsubmit = function (e) {
-  const phone = document.getElementById('phone').value
-  quizAnswers.push(phone)
-  ajax({
+  e.preventDefault()
+  const phone = document.forms.form
+  const formData = new FormData(phone)
+  const phoneValue = formData.get('phone')
+  console.log(phoneValue)
+  e.preventDefault()
+  quizAnswers.push(phoneValue)
+  $.ajax({
     type: 'POST',
     data: {data: JSON.stringify(quizAnswers)},
     url: 'mail.php',
-    success: function (data) {
+    success: function () {
+      window.location.pathname = '/thanks.html'
     }
   })
-  window.location.href = './thanks.html'
 }
+
+// eslint-disable-next-line
+let numberedFromId = new Numbered('#phone')
+
+$(document).ready(function () {
+  $('.popup').magnificPopup({
+    type: 'inline',
+    src: '#modal',
+    modal: true,
+    closeOnBgClick: false
+  })
+  $(document).on('click', '.popup-modal-dismiss', function (e) {
+    e.preventDefault()
+    $.magnificPopup.close()
+  })
+})

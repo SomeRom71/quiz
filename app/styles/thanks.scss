@@ -1,13 +1,13 @@
 .thanks{
   &__container{
-    height: 100vh;
+    height: 100%;
 
     .footer{
-      position: fixed;
-      bottom: 30px;
+      position: absolute;
       margin: 0 auto;
       left: 0;
       right: 0;
+      bottom: 0;
     }
   }
 

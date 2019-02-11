@@ -709,6 +709,10 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
+"@fancyapps/fancybox@^3.5.6":
+  version "3.5.6"
+  resolved "https://registry.yarnpkg.com/@fancyapps/fancybox/-/fancybox-3.5.6.tgz#d5e513def9aa18acb5767ce6155dc8a2e430a24a"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -4189,6 +4193,10 @@ fancy-log@^1.1.0:
     color-support "^1.1.3"
     time-stamp "^1.0.0"
 
+fancybox@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/fancybox/-/fancybox-3.0.1.tgz#13f6927449157ed026c69e78c2ba5bf0f1da9af7"
+
 fast-deep-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-1.0.0.tgz#96256a3bc975595eb36d82e9929d060d893439ff"
@@ -5441,6 +5449,10 @@ inherits@2.0.1:
 ini@^1.3.4, ini@~1.3.0:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
+
+input.numbered@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/input.numbered/-/input.numbered-1.0.6.tgz#96cfdbe7a642e16d6ef97a38c15f1d72966989c9"
 
 inquirer@^3.0.6:
   version "3.3.0"
